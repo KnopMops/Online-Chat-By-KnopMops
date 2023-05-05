@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- Подключение Bootstrap чтобы все выглядело красиво -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+	<title>Регистрация</title>
+	<!-- Свои стили -->
+	<style>
+		body {
+			background: #fcfcfc;
+		}
+		.name-p {
+			color: gray;
+			padding-bottom: 0rem;
+			font-weight: bold;
+		}
+		.login {
+			padding-top: 20px;
+		}
+		.pass {
+			padding-top: 20px;
+		}
+		.btn-ab {
+			margin-top: 20px;
+			background-color: yellow;
+			border: none;
+			padding: 0.5rem;
+			color: gray;
+			width: 195px;
+			border-radius: 10px;
+		}
+		.btn-ab:hover {
+			outline: none;
+			background-color: #9e9e03;
+			color: white;
+			transition: 0.5s background-color;
+		}
+		.form {
+			justify-content: center;
+			align-items: center;
+			background-color: gray;
+			padding: 20rem;
+		}
+		.wrapper {
+			background-color: rgb(255, 255, 255);
+			padding: 90px;
+			border-radius: 70px;
+			width: 400px;
+		}
+		.input-btn {
+			border: none;
+			outline: none;
+		}
+	</style>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+		<h5 class="my-0 mr-md-auto">Chat-app</h5>
+		<nav class="my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" href="/">Переподключиться</a>
+			<a class="p-2 text-dark" href="/about">Чат</a>
+			<a class="p-2 text-dark" href="/premium-buy">Премиум</a>
+		</nav>
+		<a class="btn btn-outline-primary" href="/register">Регистрация</a>
+	</div>
+
+	<div class="wrapper-register-form">
+		<form type="post" class="form">
+			<div class="wrapper">
+				<div class="name-div">
+					<p class="name-p">Введите свое имя</p>
+					<input type="text" placeholder="Name: Андрей" id="name" class="input-btn">
+				</div>
+				<div class="login-div">
+					<p class="name-p login">Введите свой логин</p>
+					<input type="text" placeholder="Login: Admin123" id="login" class="input-btn">
+				</div>
+				<div class="password-div">
+					<p class="name-p pass">Введите свой пароль</p>
+					<input type="text" placeholder="Password: 1234" id="password" class="input-btn">
+				</div>
+				<div class="submit-div">
+					<button id="submit" class="btn-ab">Зарегистрироваться</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<script>
+	let name = document.querySelector('#name');
+	let login = document.querySelector('#login');
+	let password = document.querySelector('#password');
+	let submit = document.querySelector('#submit');
+
+	let users = {
+
+	}
+
+	function User(name, login, password) {
+	this.name = name;
+	this.login = login; 
+	this.password = password;
+	};
+
+	function createId(users) {
+		return Object.keys(users).length;
+	};
+
+	submit.addEventListener('click', () => {
+		const nameUser = name.value;
+		const loginUser = login.value;
+		const passwordUser = password.value;
+
+		const user = new User(nameUser, loginUser, passwordUser);
+
+		const userId = 'User' + createId(users);
+
+		console.log(users);
+
+		alert(`${nameUser} вы успешно зарегестрировались`);
+	});
+	</script>
+</body>
+</html>
